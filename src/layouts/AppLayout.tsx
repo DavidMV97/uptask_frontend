@@ -7,7 +7,7 @@ export default function AppLayout() {
 	return (
 		<>
 			<header className="bg-gray-800 py-5">
-				<div className="max-w-screen-2xl max-auto flex-col lg:flex-row justify-between items-center">
+				<div className="max-w-screen-2xl max-auto flex flex-col lg:flex-row justify-between items-center">
 					<div className="w-64">
 						<Logo />
 					</div>
