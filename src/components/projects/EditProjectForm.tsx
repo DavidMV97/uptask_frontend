@@ -73,7 +73,6 @@ export default function EditProjectForm({data, projectId} : EditProjectForm ) {
                     <input
                         className="bg-fuchsia-600 w-full hover:bg-fuchsia-700 p-3 text-white uppercase font-bold cursor-pointer transition-colors"
                         type="submit" value="Guardar Cambios" />
-
                 </form>
             </div>
         </>
