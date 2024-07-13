@@ -1,6 +1,6 @@
 import { getProjectById } from "@/api/ProjectApi"
-import EditProjectForm from "@/components/projects/EditProjectForm"
 import AddTaskModal from "@/components/tasks/AddTaskModal"
+import TaskList from "@/components/tasks/TaskList"
 import { useQuery } from "@tanstack/react-query"
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 
@@ -17,6 +17,7 @@ export default function ProjectsDetailsView() {
 
 	if(isLoading) return 'Cargando ...'
 	if (isError)  return <Navigate to='/404' />	
+    
 
 	if(data) return (
         <>
@@ -30,7 +31,9 @@ export default function ProjectsDetailsView() {
                     onClick={() => navigate(location.pathname+'?newTask=true')}
                 >Agregar tarea</button>
             </nav>
-
+            <TaskList 
+               tasks={data.tasks}
+            />
             <AddTaskModal />
         </>
     )
