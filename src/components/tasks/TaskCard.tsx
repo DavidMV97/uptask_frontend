@@ -1,7 +1,10 @@
+import { deleteTask } from "@/api/TaskApi"
 import { Task } from "@/types/index"
 import { Menu, Transition } from "@headlessui/react"
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid"
-import { useNavigate } from "react-router-dom"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useNavigate, useParams } from "react-router-dom"
+import { toast } from "react-toastify"
 import { Fragment } from "react/jsx-runtime"
 
 type TaskCardProps = {
@@ -11,6 +14,21 @@ type TaskCardProps = {
 export default function TaskCard({ task }: TaskCardProps) {
 
 	const navigate = useNavigate()
+	const params = useParams()
+	const projectId = params.projectId!
+
+	const queryClient = useQueryClient()
+
+	const { mutate } = useMutation({
+		mutationFn: deleteTask,
+		onError: (error) => {
+			toast.error(error.message)
+		},
+		onSuccess: (data) => {
+			queryClient.invalidateQueries({queryKey: ['project', projectId]})
+			toast.success(data)
+		}
+	})
 
 	return (
 		<li className="p-5 bg-white border border-slate-300 flex justify-between gap-3" >
@@ -53,7 +71,11 @@ export default function TaskCard({ task }: TaskCardProps) {
 							</Menu.Item>
 
 							<Menu.Item>
-								<button type='button' className='block px-3 py-1 text-sm leading-6 text-red-500'>
+								<button 
+									type='button' 
+									className='block px-3 py-1 text-sm leading-6 text-red-500'
+									onClick={ () => mutate({projectId, taskId: task._id})}
+								>
 									Eliminar Tarea
 								</button>
 							</Menu.Item>
