@@ -34,14 +34,11 @@ const statusStyles : {[key: string] : string } = {
 }
 
 export default function TaskList({ tasks }: TaskListProps) {
-    console.log('task => ', tasks);
-
     const groupedTasks = tasks.reduce((acc, task) => {
         let currentGroup = acc[task.status] ? [...acc[task.status]] : [];
         currentGroup = [...currentGroup, task]
         return { ...acc, [task.status]: currentGroup };
     }, initialStatusGroups);
-
 
     return (
         <>
