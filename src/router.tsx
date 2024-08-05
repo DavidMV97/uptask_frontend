@@ -8,6 +8,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import LoginView from "./views/auth/LoginView";
 import RegisterView from "./views/auth/RegisterView";
 import ConfirmAccountView from "./views/auth/ConfirmAccountView";
+import RequestNewCodeView from "./views/auth/RequestNewCodeView";
 
 
 export default function AppRouter() {
@@ -26,6 +27,7 @@ export default function AppRouter() {
                     <Route path='/auth/login' element={<LoginView />} />
                     <Route path='/auth/register' element={<RegisterView />} />
                     <Route path='/auth/confirm-account' element={<ConfirmAccountView />} />
+                    <Route path='/auth/request-code' element={<RequestNewCodeView />} />
                 </Route>
 
             </Routes>
