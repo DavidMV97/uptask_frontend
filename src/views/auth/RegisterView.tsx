@@ -32,7 +32,7 @@ export default function RegisterView() {
     const password = watch('password');
 
     const handleRegister = (formData: UserRegistrationForm) => mutate(formData)
-    
+
 
     return (
         <>
@@ -142,6 +142,13 @@ export default function RegisterView() {
                     to={'/auth/login'}
                 >
                     ¿Ya tienes una cuenta? Iniciar sesión
+                </Link>
+
+                <Link
+                    className="text-center text-gray-300 font-normal"
+                    to={'/auth/forgot-password'}
+                >
+                    ¿Olvidaste tu contraseña? Reestablecer
                 </Link>
             </nav>
         </>
