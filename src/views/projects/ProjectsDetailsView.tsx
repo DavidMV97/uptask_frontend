@@ -4,7 +4,7 @@ import EditTaskData from "@/components/tasks/EditTaskData"
 import TaskList from "@/components/tasks/TaskList"
 import TaskModalDetails from "@/components/tasks/TaskModalDetails"
 import { useQuery } from "@tanstack/react-query"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
 
 export default function ProjectsDetailsView() {
     const navigate = useNavigate()
@@ -29,9 +29,16 @@ export default function ProjectsDetailsView() {
             <nav className="my-5 flex gap-3">
                 <button
                     type="button"
-                    className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
+                    className="bg-purple-500 hover:bg-purple-600 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
                     onClick={() => navigate(location.pathname+'?newTask=true')}
                 >Agregar tarea</button>
+            
+                <Link
+                    to={'team'}
+                    className="bg-fuchsia-600 hover:bg-fuchsia-700 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors"
+                >
+                    Coloaboradores
+                </Link>
             </nav>
             <TaskList 
                tasks={data.tasks}
