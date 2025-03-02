@@ -62,8 +62,8 @@ export async function forgotPassword(formData: ForgotPasswordForm){
         return data
     } catch (error) {
         if (isAxiosError(error) && error.response) {
+            console.log('here', error.response);
             throw new Error(error.response.data.error);
-            
         }
     }
 }
