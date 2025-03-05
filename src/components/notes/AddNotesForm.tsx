@@ -13,7 +13,7 @@ export default function AddNotesForm() {
 
   const queryParams = new URLSearchParams(location.search)
   const projectId = params.projectId!
-  const taskId = queryParams.get('viewTask')!
+  const taskId = queryParams.get('taskView')!
 
   const initialValues: NoteFormData = {
     content: ''
