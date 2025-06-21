@@ -62,7 +62,6 @@ export async function forgotPassword(formData: ForgotPasswordForm){
         return data
     } catch (error) {
         if (isAxiosError(error) && error.response) {
-            console.log('here', error.response);
             throw new Error(error.response.data.error);
         }
     }
@@ -112,10 +111,11 @@ export async function getUser(){
 export async function checkPassword(formData : CheckPasswordForm ){
     try {
         const url = '/auth/check-password'
-        const {data} = await api.post<string>(url, formData)
+        const {data} = await api.post<string>(url, formData)   
         return data
     } catch (error) {
         if (isAxiosError(error) && error.response) {
+            console.log(error);
             throw new Error(error.response.data.error); 
         }
     }

@@ -35,7 +35,6 @@ export default function TaskModalDetails() {
         onError: (error) => {
             toast.error(error.message)
             console.log(error);
-
         },
         onSuccess: (data) => {
             toast.success(data)
