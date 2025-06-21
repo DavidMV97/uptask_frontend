@@ -1,5 +1,5 @@
 import { isAxiosError } from "axios";
-import { CheckPasswordForm, confirmToken, ForgotPasswordForm, NewPasswordForm, RequestConfirmationCodeForm, User, UserLoginForm, UserRegistrationForm, userSchema } from "../types";
+import { CheckPasswordForm, confirmToken, ForgotPasswordForm, NewPasswordForm, RequestConfirmationCodeForm, UserLoginForm, UserRegistrationForm, userSchema } from "../types";
 import api from "@/lib/axios";
 
 export async function createAccount(formData: UserRegistrationForm){
